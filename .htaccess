@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteCond %{SERVER_PORT} 80
+
+RewriteRule ^(.*)$ https://pulloquinga.com/$1 [R,L]
+RewriteCond %{HTTP_HOST} ^pulloquinga\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.pulloquinga\.com$
+RewriteRule ^correo$ "https\:\/\/server124\.web\-hosting\.com\:2096\/" [R=301,L]
+
