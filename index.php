@@ -112,6 +112,15 @@
 +++++++########++#  ++++#+++'##++###++++'''''';;;;;:,;;;;;;;;;';'+++++++++++++++++++
 ++++++##########+#  +++##++'++#+++##+++'';;;;;;;;;;,:;;;;;;;;;;+++++++++#++++++++++#
  -->
+<?php
+
+// the message
+$msg = "First line of text\nSecond line of text";
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+// send email
+mail("dapl@me.com","My subject",$msg);
+?>
 <!doctype html>
 <html lang="es" class="no-js">
 
@@ -520,7 +529,7 @@ Estudiante de Ingenieria en Software de la Universidad de las Fuerzas Armadas-ES
                     <!-- Recognition section end -->
 
                     <div class="row footer">
-                        <a href="http://www.innova.xyz">David Pulloquinga</a> <span>Copyright &copy; 2015 All right reserved</span>
+                        <a href="https://www.facebook.com/davidandrespulloquinga">David Pulloquinga</a> <span>Copyright &copy; 2016 All right reserved</span>
                     </div>
                     <!--footer end-->
 
@@ -559,8 +568,7 @@ Estudiante de Ingenieria en Software de la Universidad de las Fuerzas Armadas-ES
                                         <img src="img/portfolio/thumb/p-1.jpg" alt="" />
                                         <figcaption>
                                             <h2>Baking <span>Ideas</span></h2>
-                                            <p>DESAYUNOS A DOMICILIO 
-UNA FORMA DISTINTA </p>
+                                            <p>DESAYUNOS A DOMICILIO UNA FORMA DISTINTA </p>
                                             <a href="#portfolio9" class="open-portfolio" >Explore</a>
                                         </figcaption>
                                     </figure>
@@ -822,7 +830,7 @@ UNA FORMA DISTINTA </p>
                         <!-- form -->
                         <div class="row"> 
                             <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-container">
-                                <form action="#" id="contactForm" method="post" name="contactForm">
+                                <form action="/" method="post" name="contactForm">
                                     <fieldset>
                                         <div>
                                             <input id="contactName" name="contactName" placeholder="Nombre_" size="35" type="text" value="">
