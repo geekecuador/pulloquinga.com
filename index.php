@@ -112,15 +112,7 @@
 +++++++########++#  ++++#+++'##++###++++'''''';;;;;:,;;;;;;;;;';'+++++++++++++++++++
 ++++++##########+#  +++##++'++#+++##+++'';;;;;;;;;;,:;;;;;;;;;;+++++++++#++++++++++#
  -->
-<?php
 
-// the message
-$msg = "First line of text\nSecond line of text";
-// use wordwrap() if lines are longer than 70 characters
-$msg = wordwrap($msg,70);
-// send email
-mail("dapl@me.com","My subject",$msg);
-?>
 <!doctype html>
 <html lang="es" class="no-js">
 
@@ -153,7 +145,9 @@ Estudiante de Ingenieria en Software de la Universidad de las Fuerzas Armadas-ES
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
+
 </head>
 
 <body>
@@ -833,11 +827,11 @@ Estudiante de Ingenieria en Software de la Universidad de las Fuerzas Armadas-ES
                                 <form action="/" method="post" name="contactForm">
                                     <fieldset>
                                         <div>
-                                            <input id="contactName" name="contactName" placeholder="Nombre_" size="35" type="text" value="">
+                                            <input id="contactName" name="contactName" placeholder="Nombre_" size="35" type="text" value="" required>
                                         </div>
 
                                         <div>
-                                            <input id="contactEmail" name="contactEmail" placeholder="Email_" size="35" type="email" value="">
+                                            <input id="contactEmail" name="contactEmail" placeholder="Email_" size="35" type="email" value="" required>
                                         </div>
 
                                         <div>
@@ -850,8 +844,8 @@ Estudiante de Ingenieria en Software de la Universidad de las Fuerzas Armadas-ES
                                             <div id="message-warning">
                                                 Error
                                             </div>
-                                            <button class="submit">Enviar <i class="fa fa-angle-right"></i>
-                                            </button>
+
+                                            <input type="submit" class="submit" value="Enviar " name="submit"/>
                                             <span id="image-loader"><img alt="" src="img/svg-loaders/mail-loader.svg"></span>
                                         </div>
                                     </fieldset>
@@ -940,3 +934,16 @@ Estudiante de Ingenieria en Software de la Universidad de las Fuerzas Armadas-ES
 </body>
 
 </html>
+<?php
+echo "  <script src=\"dist/sweetalert.min.js\"></script>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"dist/sweetalert.css\">";
+if(!empty($_POST["submit"])){
+    if(mail("dapl@me.com","Contacto","Nombre: ".$_POST["contactName"]." Email: ".$_POST["contactEmail"]." Mensaje:".$_POST["contactMessage"]." ")){
+        echo "<script>sweetAlert(\"Envio exitoso!\", \"Acabo de recibir tu solicitud, lo más pronto me comunicaré contigo :D!\", \"success\");</script>";
+    }
+    else{
+        echo " <script> sweetAlert(\"Error en el envio del mensaje!\");</script>";
+    }
+
+}
+?>
